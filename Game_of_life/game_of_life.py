@@ -8,6 +8,7 @@ Created on Mon Jan 13 14:23:11 2025
 import random
 import os
 import time
+import argparse
 
 # Constantes
 LIVE_CELL = '#'
@@ -64,4 +65,12 @@ def play_game_of_life(rows, cols, generations):
         grid = next_generation(grid)
 
 if __name__ == "__main__":
-    play_game_of_life(20, 40, 100)  # Grille 20x40 avec 100 générations
+    parser = argparse.ArgumentParser(description="Run Conway's Game of Life.")
+    
+    parser.add_argument('-x', type=int, default=20, help="Number of rows in the grid (default: 20)")
+    parser.add_argument('-y', type=int, default=40, help="Number of columns in the grid (default: 40)")
+    parser.add_argument('--num_generations', type=int, default=100, help="Number of generations to simulate (default: 100)")
+    
+    args = parser.parse_args()
+    
+    play_game_of_life(args.x, args.y, args.num_generations)
