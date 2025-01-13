@@ -9,20 +9,29 @@ import random
 import os
 import time
 import argparse
+from colorama import init, Fore, Back, Style
 
-# Constantes
+init(autoreset=True)
+
 LIVE_CELL = '#'
 DEAD_CELL = ' '
+LIVE_COLOR = Fore.GREEN + Style.BRIGHT
+DEAD_COLOR = Fore.BLACK + Style.DIM
 
 def create_grid(rows, cols):
     """Crée une grille aléatoire pour le jeu avec des cellules vivantes et mortes."""
     return [[LIVE_CELL if random.random() > 0.8 else DEAD_CELL for _ in range(cols)] for _ in range(rows)]
 
 def print_grid(grid):
-    """Affiche la grille dans la console."""
+    """Affiche la grille dans la console avec des couleurs."""
     os.system('cls' if os.name == 'nt' else 'clear')  # Nettoyer la console
     for row in grid:
-        print(''.join(row))
+        for cell in row:
+            if cell == LIVE_CELL:
+                print(LIVE_COLOR + LIVE_CELL, end='')
+            else:
+                print(DEAD_COLOR + DEAD_CELL, end='')
+        print()
     time.sleep(0.5)  # Pause pour permettre de voir l'évolution
 
 def count_neighbors(grid, row, col):
