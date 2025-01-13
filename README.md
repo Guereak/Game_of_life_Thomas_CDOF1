@@ -30,6 +30,12 @@ To install and set up the project, follow these steps:
     python setup.py install
     ```
 
+3. Install required dependencies:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
 ## Running the Game Manually
 
 After installation, you can run the game manually in two ways:
