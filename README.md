@@ -20,7 +20,7 @@ To install and set up the project, follow these steps:
 1. Clone the repository from GitHub:
 
     ```bash
-    git clone https://github.com/your-username/Game_of_life_Thomas_CDOF1.git
+    git clone https://github.com/Thoomasdkzh/Game_of_life_Thomas_CDOF1.git
     cd Game_of_life_Thomas_CDOF1
     ```
 
